@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+  --gradient-clear: linear-gradient(to top, #2980b9, #6dd5fa, #ffffff);
+  --gradient-hot: linear-gradient(to top, #fffc00, #ffffff);
+  --gradient-cold: linear-gradient(to top, #43c6ac, #f8ffae);
+  --gradient-rainy: linear-gradient(to top, #4b79a1, #283e51);
+  --bdr-radius: 5px;
+}
+
+.box-elements,
+input {
+  border-radius: var(--bdr-radius);
+  padding: 8px 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--gradient-rainy);
+  min-height: 100vh;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  min-height: 28px;
+  border: 2px solid transparent;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  background: rgb(251, 251, 251);
+  transition: all 0.1s ease 0s;
+  outline: none;
+}
+
+input:focus {
+  border: 2px solid rgb(124, 138, 255);
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  max-width: 100%;
+}
+
+input[type='submit'] {
+  cursor: pointer;
+}
+
+main {
+  border: 1px solid #000;
+  padding: 10px 30px;
+}
