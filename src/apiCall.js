@@ -7,9 +7,10 @@ const getCurrentWeather = async (location) => {
   if (res.ok) {
     const data = await res.json()
     console.info(processData(data))
-    return processData(data)
+    //todo: resolve promise
   } else {
     console.error('response was not okay!')
+    //todo: reject promise
   }
 }
 
