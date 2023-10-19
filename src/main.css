@@ -17,12 +17,6 @@
   --bdr-radius: 5px;
 }
 
-.box-elements,
-input {
-  border-radius: var(--bdr-radius);
-  padding: 8px 16px;
-}
-
 body {
   font-family: var(--font-family);
   background: var(--gradient-rainy);
@@ -34,19 +28,6 @@ body {
   justify-content: center;
 }
 
-input {
-  min-height: 28px;
-  border: 2px solid transparent;
-  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
-  background: rgb(251, 251, 251);
-  transition: all 0.1s ease 0s;
-  outline: none;
-}
-
-input:focus {
-  border: 2px solid rgb(124, 138, 255);
-}
-
 form {
   display: flex;
   align-items: center;
@@ -56,11 +37,38 @@ form {
   max-width: 100%;
 }
 
+input {
+  min-height: 28px;
+  border: 2px solid transparent;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  background: rgb(251, 251, 251);
+  transition: all 0.1s ease 0s;
+  outline: none;
+  border-radius: var(--bdr-radius);
+  padding: 8px 16px;
+}
+
+input:focus {
+  border: 2px solid rgb(124, 138, 255);
+}
+
 input[type='submit'] {
   cursor: pointer;
 }
 
 main {
-  border: 1px solid #000;
   padding: 10px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.icon {
+  width: 100px;
+}
+
+.temp {
+  font-size: 2.5rem;
 }
