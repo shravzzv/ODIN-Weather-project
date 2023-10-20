@@ -156,7 +156,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Form = () => {\r\n  const element = document.createElement('form')\r\n\r\n  const search = document.createElement('input')\r\n  search.type = 'search'\r\n  search.name = 'location'\r\n  search.placeholder = 'London'\r\n\r\n  const submit = document.createElement('input')\r\n  submit.type = 'submit'\r\n  submit.value = 'submit'\r\n  submit.name = 'submit'\r\n\r\n  element.appendChild(search)\r\n  element.appendChild(submit)\r\n  return element\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);\r\n\n\n//# sourceURL=webpack://odin-weather-project/./src/components/form.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Form = () => {\r\n  const element = document.createElement('form')\r\n\r\n  const search = document.createElement('input')\r\n  search.type = 'search'\r\n  search.name = 'location'\r\n  search.placeholder = 'London'\r\n\r\n  element.appendChild(search)\r\n  return element\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);\r\n\n\n//# sourceURL=webpack://odin-weather-project/./src/components/form.js?");
 
 /***/ }),
 
