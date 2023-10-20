@@ -2,6 +2,7 @@ import 'normalize.css'
 import './styles.css'
 import Form from './components/form'
 import Display from './components/display'
+import Loader from './components/loader'
 import { getCurrentWeather, getForecast } from './apiCall'
 
 const root = document.querySelector('#root')
@@ -10,14 +11,17 @@ let forecast
 
 const handleSubmit = async (e) => {
   e.preventDefault()
-  const currentDisplay = document.querySelector('.display')
-  currentDisplay.textContent = 'Loading...'
+  document.querySelector('.display').remove()
+  root.appendChild(Loader())
+  document.querySelector(`input[type='search']`).placeholder =
+    'Search for location'
 
   const query = e.target.elements.location.value.trim()
   if (query) {
     currentWeather = await getCurrentWeather(query)
     forecast = await getForecast(query, 7)
-    currentDisplay.remove()
+
+    document.querySelector('.loader').remove()
     root.appendChild(Display(currentWeather))
   } else {
     console.error('Enter a proper location')
