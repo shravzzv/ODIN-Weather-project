@@ -6,13 +6,13 @@ export const getCurrentWeather = async (location) => {
     const res = await fetch(`${url}?key=${API_KEY}&q=${location}&aqi=no`)
     if (res.ok) {
       const data = await res.json()
-      console.log(processCWData(data))
-      return data
+      return processCWData(data)
     } else {
       throw new Error('Response was not ok')
     }
   } catch (error) {
     console.error(error)
+    return error.message
   }
 }
 
@@ -25,12 +25,13 @@ export const getForecast = async (location, days) => {
     )
     if (res.ok) {
       const data = await res.json()
-      console.log(processForecastData(data))
+      return processForecastData(data)
     } else {
       throw new Error('Response was not ok')
     }
   } catch (error) {
     console.error(error)
+    return error.message
   }
 }
 
