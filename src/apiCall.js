@@ -1,25 +1,40 @@
-const url = 'https://api.weatherapi.com/v1/current.json'
-
 const API_KEY = '8ffdc1eb60514063b4844549231910'
 
-const getCurrentWeather = async (location) => {
+export const getCurrentWeather = async (location) => {
+  const url = 'https://api.weatherapi.com/v1/current.json'
   try {
-    const res = await fetch(`${url}?key=${API_KEY}&q=${location}`)
+    const res = await fetch(`${url}?key=${API_KEY}&q=${location}&aqi=no`)
     if (res.ok) {
       const data = await res.json()
-      console.log(data)
-      console.info(processData(data))
-      //todo: resolve promise
+      console.log(processCWData(data))
+      return data
     } else {
       throw new Error('Response was not ok')
     }
   } catch (error) {
-    //todo: reject promise
     console.error(error)
   }
 }
 
-const processData = (data) => ({
+export const getForecast = async (location, days) => {
+  const url = 'https://api.weatherapi.com/v1/forecast.json'
+
+  try {
+    const res = await fetch(
+      `${url}?key=${API_KEY}&q=${location}&days=${days}&aqi=no&alerts=no`
+    )
+    if (res.ok) {
+      const data = await res.json()
+      console.log(processForecastData(data))
+    } else {
+      throw new Error('Response was not ok')
+    }
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+const processCWData = (data) => ({
   location: data.location.name,
   country: data.location.country,
   localTime: data.location.localtime,
@@ -39,4 +54,11 @@ const processData = (data) => ({
   cloudiness: data.current.cloud,
 })
 
-export default getCurrentWeather
+const processForecastData = (data) =>
+  data.forecast.forecastday.map((day) => ({
+    date: day.date,
+    maxTempInC: day.day.maxtemp_c,
+    maxTempInF: day.day.maxtemp_f,
+    minTempInC: day.day.mintemp_c,
+    minTempInF: day.day.mintemp_f,
+  }))
