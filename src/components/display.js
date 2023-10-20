@@ -2,7 +2,7 @@ const Display = (weather) => {
   const element = document.createElement('main')
   element.className = 'display'
 
-  const condition = document.createElement('p')
+  const condition = document.createElement('h2')
   condition.textContent = weather.conditionText
 
   const location = document.createElement('p')
@@ -11,17 +11,17 @@ const Display = (weather) => {
   const country = document.createElement('p')
   country.textContent = weather.country
 
-  const temperature = document.createElement('p')
+  const temperature = document.createElement('h1')
   temperature.textContent = `${weather.tempInC} °C`
 
   const feelsLike = document.createElement('p')
-  feelsLike.textContent = `${weather.feelsLikeInC} °C`
+  feelsLike.textContent = `Feels like: ${weather.feelsLikeInC} °C`
 
   const wind = document.createElement('p')
-  wind.textContent = `${weather.windKph} kph`
+  wind.textContent = `Wind: ${weather.windKph} kph`
 
   const humidity = document.createElement('p')
-  humidity.textContent = `${weather.humidity} %`
+  humidity.textContent = `Humidity: ${weather.humidity} %`
 
   element.appendChild(condition)
   element.appendChild(location)
