@@ -2,6 +2,14 @@ const Display = (weather) => {
   const element = document.createElement('main')
   element.className = 'display'
 
+  if (weather === 'Response was not ok') {
+    const errorTitle = document.createElement('h2')
+    errorTitle.textContent = 'Perhaps your input was wrong'
+
+    element.appendChild(errorTitle)
+    return element
+  }
+
   const condition = document.createElement('h2')
   condition.textContent = weather.conditionText
 

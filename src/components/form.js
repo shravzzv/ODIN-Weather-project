@@ -5,6 +5,7 @@ const Form = () => {
   search.type = 'search'
   search.name = 'location'
   search.placeholder = 'London'
+  search.required = true
 
   element.appendChild(search)
   return element
