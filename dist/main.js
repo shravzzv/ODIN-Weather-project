@@ -140,13 +140,23 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "./src/components/display.js":
+/*!***********************************!*\
+  !*** ./src/components/display.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Display = (weather) => {\r\n  const element = document.createElement('main')\r\n  element.className = 'display'\r\n\r\n  const condition = document.createElement('p')\r\n  condition.textContent = weather.conditionText\r\n\r\n  const location = document.createElement('p')\r\n  location.textContent = weather.location\r\n\r\n  const country = document.createElement('p')\r\n  country.textContent = weather.country\r\n\r\n  const temperature = document.createElement('p')\r\n  temperature.textContent = `${weather.tempInC} °C`\r\n\r\n  const feelsLike = document.createElement('p')\r\n  feelsLike.textContent = `${weather.feelsLikeInC} °C`\r\n\r\n  const wind = document.createElement('p')\r\n  wind.textContent = `${weather.windKph} kph`\r\n\r\n  const humidity = document.createElement('p')\r\n  humidity.textContent = `${weather.humidity} %`\r\n\r\n  element.appendChild(condition)\r\n  element.appendChild(location)\r\n  element.appendChild(country)\r\n  element.appendChild(temperature)\r\n  element.appendChild(feelsLike)\r\n  element.appendChild(wind)\r\n  element.appendChild(humidity)\r\n  return element\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Display);\r\n\n\n//# sourceURL=webpack://odin-weather-project/./src/components/display.js?");
+
+/***/ }),
+
 /***/ "./src/components/form.js":
 /*!********************************!*\
   !*** ./src/components/form.js ***!
   \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Form = () => {\r\n  const element = document.createElement('form')\r\n\r\n  const search = document.createElement('input')\r\n  search.type = 'search'\r\n  search.name = 'location'\r\n  search.placeholder = 'Location'\r\n\r\n  const submit = document.createElement('input')\r\n  submit.type = 'submit'\r\n  submit.value = 'submit'\r\n  submit.name = 'submit'\r\n\r\n  element.appendChild(search)\r\n  element.appendChild(submit)\r\n  return element\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);\r\n\n\n//# sourceURL=webpack://odin-weather-project/./src/components/form.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst Form = () => {\r\n  const element = document.createElement('form')\r\n\r\n  const search = document.createElement('input')\r\n  search.type = 'search'\r\n  search.name = 'location'\r\n  search.placeholder = 'London'\r\n\r\n  const submit = document.createElement('input')\r\n  submit.type = 'submit'\r\n  submit.value = 'submit'\r\n  submit.name = 'submit'\r\n\r\n  element.appendChild(search)\r\n  element.appendChild(submit)\r\n  return element\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Form);\r\n\n\n//# sourceURL=webpack://odin-weather-project/./src/components/form.js?");
 
 /***/ }),
 
@@ -154,9 +164,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _apiCall__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./apiCall */ \"./src/apiCall.js\");\n/* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/form */ \"./src/components/form.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_apiCall__WEBPACK_IMPORTED_MODULE_2__.getForecast)('london', 7)\r\n\r\nconst root = document.querySelector('#root')\r\n\r\nroot.appendChild((0,_components_form__WEBPACK_IMPORTED_MODULE_3__[\"default\"])())\r\n\r\nlet currentWeather\r\nlet forecast\r\n\r\nconst handleSubmit = async (e) => {\r\n  e.preventDefault()\r\n  const query = e.target.elements.location.value.trim()\r\n  if (query) {\r\n    currentWeather = await (0,_apiCall__WEBPACK_IMPORTED_MODULE_2__.getCurrentWeather)(query)\r\n    forecast = await (0,_apiCall__WEBPACK_IMPORTED_MODULE_2__.getForecast)(query, 7)\r\n  } else {\r\n    console.error('Enter a proper location')\r\n  }\r\n  console.log(currentWeather)\r\n  console.log(forecast)\r\n}\r\n\r\ndocument.querySelector('form').addEventListener('submit', handleSubmit)\r\n\n\n//# sourceURL=webpack://odin-weather-project/./src/index.js?");
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var normalize_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! normalize.css */ \"./node_modules/normalize.css/normalize.css\");\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _components_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/form */ \"./src/components/form.js\");\n/* harmony import */ var _components_display__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/display */ \"./src/components/display.js\");\n/* harmony import */ var _apiCall__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./apiCall */ \"./src/apiCall.js\");\n\r\n\r\n\r\n\r\n\r\n\r\nconst root = document.querySelector('#root')\r\nlet currentWeather = await (0,_apiCall__WEBPACK_IMPORTED_MODULE_4__.getCurrentWeather)('london')\r\nlet forecast\r\n\r\nconst handleSubmit = async (e) => {\r\n  e.preventDefault()\r\n  const query = e.target.elements.location.value.trim()\r\n  if (query) {\r\n    currentWeather = await (0,_apiCall__WEBPACK_IMPORTED_MODULE_4__.getCurrentWeather)(query)\r\n    forecast = await (0,_apiCall__WEBPACK_IMPORTED_MODULE_4__.getForecast)(query, 7)\r\n    document.querySelector('.display').remove()\r\n    root.appendChild((0,_components_display__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(currentWeather))\r\n  } else {\r\n    console.error('Enter a proper location')\r\n  }\r\n}\r\n\r\nroot.appendChild((0,_components_form__WEBPACK_IMPORTED_MODULE_2__[\"default\"])())\r\nroot.appendChild((0,_components_display__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(currentWeather))\r\n\r\ndocument.querySelector('form').addEventListener('submit', handleSubmit)\r\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } }, 1);\n\n//# sourceURL=webpack://odin-weather-project/./src/index.js?");
 
 /***/ })
 
@@ -187,6 +197,75 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var norm
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/async module */
+/******/ 	(() => {
+/******/ 		var webpackQueues = typeof Symbol === "function" ? Symbol("webpack queues") : "__webpack_queues__";
+/******/ 		var webpackExports = typeof Symbol === "function" ? Symbol("webpack exports") : "__webpack_exports__";
+/******/ 		var webpackError = typeof Symbol === "function" ? Symbol("webpack error") : "__webpack_error__";
+/******/ 		var resolveQueue = (queue) => {
+/******/ 			if(queue && queue.d < 1) {
+/******/ 				queue.d = 1;
+/******/ 				queue.forEach((fn) => (fn.r--));
+/******/ 				queue.forEach((fn) => (fn.r-- ? fn.r++ : fn()));
+/******/ 			}
+/******/ 		}
+/******/ 		var wrapDeps = (deps) => (deps.map((dep) => {
+/******/ 			if(dep !== null && typeof dep === "object") {
+/******/ 				if(dep[webpackQueues]) return dep;
+/******/ 				if(dep.then) {
+/******/ 					var queue = [];
+/******/ 					queue.d = 0;
+/******/ 					dep.then((r) => {
+/******/ 						obj[webpackExports] = r;
+/******/ 						resolveQueue(queue);
+/******/ 					}, (e) => {
+/******/ 						obj[webpackError] = e;
+/******/ 						resolveQueue(queue);
+/******/ 					});
+/******/ 					var obj = {};
+/******/ 					obj[webpackQueues] = (fn) => (fn(queue));
+/******/ 					return obj;
+/******/ 				}
+/******/ 			}
+/******/ 			var ret = {};
+/******/ 			ret[webpackQueues] = x => {};
+/******/ 			ret[webpackExports] = dep;
+/******/ 			return ret;
+/******/ 		}));
+/******/ 		__webpack_require__.a = (module, body, hasAwait) => {
+/******/ 			var queue;
+/******/ 			hasAwait && ((queue = []).d = -1);
+/******/ 			var depQueues = new Set();
+/******/ 			var exports = module.exports;
+/******/ 			var currentDeps;
+/******/ 			var outerResolve;
+/******/ 			var reject;
+/******/ 			var promise = new Promise((resolve, rej) => {
+/******/ 				reject = rej;
+/******/ 				outerResolve = resolve;
+/******/ 			});
+/******/ 			promise[webpackExports] = exports;
+/******/ 			promise[webpackQueues] = (fn) => (queue && fn(queue), depQueues.forEach(fn), promise["catch"](x => {}));
+/******/ 			module.exports = promise;
+/******/ 			body((deps) => {
+/******/ 				currentDeps = wrapDeps(deps);
+/******/ 				var fn;
+/******/ 				var getResult = () => (currentDeps.map((d) => {
+/******/ 					if(d[webpackError]) throw d[webpackError];
+/******/ 					return d[webpackExports];
+/******/ 				}))
+/******/ 				var promise = new Promise((resolve) => {
+/******/ 					fn = () => (resolve(getResult));
+/******/ 					fn.r = 0;
+/******/ 					var fnQueue = (q) => (q !== queue && !depQueues.has(q) && (depQueues.add(q), q && !q.d && (fn.r++, q.push(fn))));
+/******/ 					currentDeps.map((dep) => (dep[webpackQueues](fnQueue)));
+/******/ 				});
+/******/ 				return fn.r ? promise : getResult();
+/******/ 			}, (err) => ((err ? reject(promise[webpackError] = err) : outerResolve(exports)), resolveQueue(queue)));
+/******/ 			queue && queue.d < 0 && (queue.d = 0);
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules

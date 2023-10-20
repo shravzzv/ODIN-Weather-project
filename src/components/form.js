@@ -4,7 +4,7 @@ const Form = () => {
   const search = document.createElement('input')
   search.type = 'search'
   search.name = 'location'
-  search.placeholder = 'Location'
+  search.placeholder = 'London'
 
   const submit = document.createElement('input')
   submit.type = 'submit'

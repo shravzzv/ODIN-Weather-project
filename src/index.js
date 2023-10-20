@@ -1,16 +1,11 @@
 import 'normalize.css'
 import './styles.css'
+import Form from './components/form'
+import Display from './components/display'
 import { getCurrentWeather, getForecast } from './apiCall'
 
-import Form from './components/form'
-
-getForecast('london', 7)
-
 const root = document.querySelector('#root')
-
-root.appendChild(Form())
-
-let currentWeather
+let currentWeather = await getCurrentWeather('london')
 let forecast
 
 const handleSubmit = async (e) => {
@@ -19,11 +14,14 @@ const handleSubmit = async (e) => {
   if (query) {
     currentWeather = await getCurrentWeather(query)
     forecast = await getForecast(query, 7)
+    document.querySelector('.display').remove()
+    root.appendChild(Display(currentWeather))
   } else {
     console.error('Enter a proper location')
   }
-  console.log(currentWeather)
-  console.log(forecast)
 }
+
+root.appendChild(Form())
+root.appendChild(Display(currentWeather))
 
 document.querySelector('form').addEventListener('submit', handleSubmit)
