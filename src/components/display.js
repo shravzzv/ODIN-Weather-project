@@ -1,4 +1,4 @@
-const Display = (weather) => {
+const Display = (weather, useCelsius) => {
   const element = document.createElement('main')
   element.className = 'display'
 
@@ -28,10 +28,14 @@ const Display = (weather) => {
   country.textContent = weather.country
 
   const temperature = document.createElement('h1')
-  temperature.textContent = `${weather.tempInC} °C`
+  temperature.textContent = useCelsius
+    ? `${weather.tempInC} °C`
+    : `${weather.tempInF} °F`
 
   const feelsLike = document.createElement('p')
-  feelsLike.textContent = `Feels like: ${weather.feelsLikeInC} °C`
+  feelsLike.textContent = useCelsius
+    ? `Feels like: ${weather.feelsLikeInC} °C`
+    : `Feels like: ${weather.feelsLikeInF} °F`
 
   const wind = document.createElement('p')
   wind.textContent = `Wind: ${weather.windKph} kph`

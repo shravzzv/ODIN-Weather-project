@@ -18,6 +18,13 @@ const gradients = [
   `linear-gradient(to right, #9796f0, #fbc7d4)`,
 ]
 let currentGradient = 0
+let useCelsius = true
+
+const handleToggle = (e) => {
+  useCelsius = !useCelsius
+  document.querySelector('.display').remove()
+  root.appendChild(Display(currentWeather, useCelsius))
+}
 
 const handleSubmit = async (e) => {
   e.preventDefault()
@@ -37,14 +44,18 @@ const handleSubmit = async (e) => {
 
   document.querySelector('.loader').remove()
 
-  root.appendChild(Display(currentWeather))
+  root.appendChild(Display(currentWeather, useCelsius))
 
   document.querySelector('.display').style.background =
     gradients[currentGradient]
 }
 
 root.appendChild(Form())
-root.appendChild(Toggle())
-root.appendChild(Display(currentWeather))
+root.appendChild(Toggle(useCelsius))
+root.appendChild(Display(currentWeather, useCelsius))
 
 document.querySelector('form').addEventListener('submit', handleSubmit)
+
+document
+  .querySelector(`input[type="checkbox"]`)
+  .addEventListener('input', handleToggle)
