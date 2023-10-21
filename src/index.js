@@ -24,6 +24,8 @@ const handleToggle = (e) => {
   useCelsius = !useCelsius
   document.querySelector('.display').remove()
   root.appendChild(Display(currentWeather, useCelsius))
+  document.querySelector('.display').style.background =
+    gradients[currentGradient]
 }
 
 const handleSubmit = async (e) => {
