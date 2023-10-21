@@ -2,6 +2,14 @@ const Display = (weather) => {
   const element = document.createElement('main')
   element.className = 'display'
 
+  if (weather === 'Failed to fetch') {
+    const errorTitle = document.createElement('h2')
+    errorTitle.textContent = 'No internet'
+
+    element.appendChild(errorTitle)
+    return element
+  }
+
   if (weather === 'Response was not ok') {
     const errorTitle = document.createElement('h2')
     errorTitle.textContent = 'Perhaps your input was wrong'
