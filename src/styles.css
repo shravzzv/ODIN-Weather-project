@@ -10,13 +10,19 @@
   --txt-clr-prm: black;
   --bg-clr-prm: white;
   --search-bg-clr: white;
+  --toggle-bg-clr: white;
+  --toggle-btn-txt-clr: white;
+  --toggle-btn-bg-clr: #3b3b3b;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --txt-clr-prm: #e8e6e3;
-    --bg-clr-prm: #131516;
+    --bg-clr-prm: #191919;
     --search-bg-clr: #3b3b3b;
+    --toggle-bg-clr: #3b3b3b;
+    --toggle-btn-txt-clr: black;
+    --toggle-btn-bg-clr: white;
   }
 }
 
@@ -124,4 +130,51 @@ input[type='search'] {
   to {
     transform: translate(-50%, -55%) rotate(-45deg) rotateY(360deg);
   }
+}
+
+/* toggle */
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.toggle {
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  animation: fadeIn 600ms ease;
+}
+
+.content {
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  border-radius: 50px;
+  transition: background-color 300ms ease;
+  position: relative;
+  border-radius: 50px;
+  background-color: var(--toggle-bg-clr);
+}
+
+.content::after {
+  content: '°C';
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 300ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--toggle-btn-txt-clr);
+  background-color: var(--toggle-btn-bg-clr);
+  /* use gradient for background */
+}
+
+input[type='checkbox']:checked + .content::after {
+  content: '°F';
+  transform: translateX(30px);
 }

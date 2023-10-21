@@ -3,14 +3,14 @@ import './styles.css'
 import Form from './components/form'
 import Display from './components/display'
 import Loader from './components/loader'
-import { getCurrentWeather, getForecast } from './apiCall'
+import Toggle from './components/toggle'
+import { getCurrentWeather } from './apiCall'
 
 const root = document.querySelector('#root')
 let currentWeather = await getCurrentWeather('london')
 
 const gradients = [
   `linear-gradient(to right, #8360c3, #2ebf91)`,
-  `linear-gradient(to right, #ee0979, #ff6a00)`,
   `linear-gradient(to bottom, #ff4b1f, #1fddff)`,
   `linear-gradient(to right, #0099f7, #f11712)`,
   `linear-gradient(to right, #5614b0, #dbd65c)`,
@@ -18,6 +18,13 @@ const gradients = [
   `linear-gradient(to right, #9796f0, #fbc7d4)`,
 ]
 let currentGradient = 0
+let useCelsius = true
+
+const handleToggle = (e) => {
+  useCelsius = !useCelsius
+  document.querySelector('.display').remove()
+  root.appendChild(Display(currentWeather, useCelsius))
+}
 
 const handleSubmit = async (e) => {
   e.preventDefault()
@@ -37,13 +44,18 @@ const handleSubmit = async (e) => {
 
   document.querySelector('.loader').remove()
 
-  root.appendChild(Display(currentWeather))
+  root.appendChild(Display(currentWeather, useCelsius))
 
   document.querySelector('.display').style.background =
     gradients[currentGradient]
 }
 
 root.appendChild(Form())
-root.appendChild(Display(currentWeather))
+root.appendChild(Toggle(useCelsius))
+root.appendChild(Display(currentWeather, useCelsius))
 
 document.querySelector('form').addEventListener('submit', handleSubmit)
+
+document
+  .querySelector(`input[type="checkbox"]`)
+  .addEventListener('input', handleToggle)
