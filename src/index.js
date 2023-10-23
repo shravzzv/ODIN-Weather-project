@@ -61,3 +61,19 @@ document.querySelector('form').addEventListener('submit', handleSubmit)
 document
   .querySelector(`input[type="checkbox"]`)
   .addEventListener('input', handleToggle)
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition)
+  } else {
+    console.warning('Geolocation is not supported by this browser.')
+  }
+}
+
+async function showPosition(position) {
+  let location = `${position.coords.latitude}, ${position.coords.longitude}`
+  let data = await getCurrentWeather(location)
+  console.info(data)
+}
+
+getLocation()
